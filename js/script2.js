@@ -14,8 +14,8 @@ class Producto{
 }
 
 let arrayArticulos = [];
-// ingresar los articulos en el orden que se quiera y al final con la funcion Sort son ordenados 
-// alfabeticamente por el nombre del articulo e impresos en consola 
+
+
 do{
     var articulo = prompt(`Ingrese el nombre del producto o escribe FIN al finalizar`);
     if(articulo === "Fin" || articulo === "FIN" || articulo === "fin"){
@@ -40,16 +40,4 @@ for (let producto of arrayArticulos){
     document.write(`<p>El Precio de lista C/Iva es: ${producto.precioLista()} </p></div>`);
     document.write("<br>");
 }
-
-arrayArticulos.sort((a1, a2) => {
-    if (a1.articulo < a2.articulo){
-        return -1;
-    } else if(a1.articulo > a2.articulo){
-        return 1;
-    }else{
-        return 0;
-    }
-})
-
-console.log(arrayArticulos);
 
