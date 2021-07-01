@@ -579,7 +579,7 @@ section {
 }
 .about .icon-boxes .icon-box input {
   margin: 10px 0 10px 0;
-  width: 30vh;
+  width: 10rem;
 }
 
 @media (max-width: 1200px) {

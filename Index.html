@@ -82,9 +82,13 @@
                   <i class="bx bx-receipt"></i>
                   <h4>Calculadora IMC</h4>
                   <p>Ingresa tu peso y altura:</p>
-                  <input type="number" class="form-control" id="calc_peso" placeholder="Peso en KG">
-                  <input type="number" class="form-control" id="calc_altura" placeholder="Altura en CM">
-                  
+                  <div id="div_imc">
+                   
+                      <input type="number" id="calc_peso" placeholder="Peso en KG">
+                      <input type="number" id="calc_altura" placeholder="Altura en CM">
+                      <button type="submit" id="btn_imc">Enviar</button>
+                    
+                  </div>    
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                   <i class="bx bx-cube-alt"></i>
@@ -523,7 +527,7 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  <script src="./assets/js/script.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
