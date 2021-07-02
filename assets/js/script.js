@@ -64,7 +64,6 @@ function ImcClasificacion(valor){
 }
 
 function mensaje(){
-
     //Al no tener donde enviar el mensaje lo almaceno en el local Storage
     let contact = document.getElementById("paraContacto");
     contact.addEventListener("click", envioMensaje);
