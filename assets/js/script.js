@@ -66,25 +66,43 @@ function ImcClasificacion(valor){
 function mensaje(){
 
     //Al no tener donde enviar el mensaje lo almaceno en el local Storage
+    let contact = document.getElementById("paraContacto");
+    contact.addEventListener("click", envioMensaje);
 
-    let nombre = document.getElementById("contactoNombre").value;
-    let email = document.getElementById("contactoEmail").value;
-    let asunto = document.getElementById("contactoAsunto").value;
-    let contenido = document.getElementById("contactoMensaje").value;
+    function envioMensaje(e){
+        e.preventDefault();
+        let nombre = document.getElementById("contactoNombre").value;
+        let email = document.getElementById("contactoEmail").value;
+        let asunto = document.getElementById("contactoAsunto").value;
+        let contenido = document.getElementById("contactoMensaje").value;
 
-    class envio{
-        constructor(dato1, dato2, dato3, dato4){
-            this.usuario = dato1;
-            this.email = dato2;
-            this.asunto = dato3;
-            this.contenido = dato4;
+        if(!nombre || !email || !asunto || !contenido){
+            alert("Te falta completar alguno de los campos requeridos");
+        }else{
+            class envio{
+                constructor(dato1, dato2, dato3, dato4){
+                    this.usuario = dato1;
+                    this.email = dato2;
+                    this.asunto = dato3;
+                    this.contenido = dato4;
+                }
+            }
+    
+            const contacto = new envio(nombre, email, asunto, contenido)
+            const mensaje = JSON.stringify(contacto);
+            localStorage.setItem("ContactoUsuario", mensaje);
+    
+            let contenedorNuevo = document.createElement("p");
+            let contenedorNuevoData = document.createTextNode("Gracias por contactarte, en breve nos pondremos en contacto.");
+            contenedorNuevo.appendChild(contenedorNuevoData);
+            //Intercambio
+            let contenedorViejo = document.getElementById("paraContacto");
+            let nodoPadre = contenedorViejo.parentNode
+            nodoPadre.replaceChild(contenedorNuevo, contenedorViejo);
         }
     }
-
-    const Mensaje = new envio(nombre, email, asunto, contenido)
-
-    
 }
+mensaje();
 
 
 
