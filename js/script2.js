@@ -1,55 +1,61 @@
-class Producto{
-    constructor(nombre, precio, data, cantidad){
-        this.articulo = nombre;
-        this.precio = parseFloat(precio);
-        this.data = data;
-        this.cantidad = cantidad;
-    }
-    precioIva(){
-        return parseFloat(this.precio*1.21);    
-    }
-    precioLista(){
-        return parseFloat(this.precio * 1.21 * 1.3);
-    }
-}
-
 let arrayArticulos = [];
-// ingresar los articulos en el orden que se quiera y al final con la funcion Sort son ordenados 
-// alfabeticamente por el nombre del articulo e impresos en consola 
-do{
-    var articulo = prompt(`Ingrese el nombre del producto o escribe FIN al finalizar`);
-    if(articulo === "Fin" || articulo === "FIN" || articulo === "fin"){
-        break
+
+function carga(){
+    let carga = document.querySelector(".btn_carga");
+    carga.addEventListener("click", cargaLista);
+    
+    function cargaLista(){
+        let articulo = document.querySelector(".articulo").value;
+        let precio = document.querySelector(".precio").value;
+        let marca = document.querySelector(".marca").value;
+        let cantidad = document.querySelector(".cantidad").value;
+        precio = parseFloat(precio);
+        cantidad = parseInt(cantidad);
+        if( !articulo || !precio || !marca || !cantidad){
+            alert("Te faltan conpletar campos requeridos");
+        }else{
+        class Producto{
+            constructor(nombre, precio, marca, cantidad){
+                this.articulo = nombre;
+                this.precio = parseFloat(precio);
+                this.marca = marca;
+                this.cantidad = cantidad;
+            }
+        }
+        arrayArticulos.push(new Producto(articulo, precio, marca, cantidad));
+
+        document.querySelector(".articulo").value = "";
+        document.querySelector(".precio").value = "";
+        document.querySelector(".marca").value = "";
+        document.querySelector(".cantidad").value = "";
+        }
     }
-    else{
-        let nombreA = articulo;
-        let precioA = prompt(`Ingrese el precio del articulo`);
-        let dataA = prompt(`Ingrese el detalle del articulo`);
-        let cantidadA = prompt(`Ingrese la cantidad comprada del articulo`);
-        arrayArticulos.push(new Producto(nombreA, precioA, dataA, cantidadA));        
-    }   
 }
-while (articulo != "Fin" || articulo != "FIN" || articulo != "fin");
+carga();
 
-for (let producto of arrayArticulos){
-    document.write("<br>");
-    document.write(`<div><p>El Articulo ingresado es: ${producto.articulo} </p>`);
-    document.write(`<p>Detalle del articulo: ${producto.data} </p>`);
-    document.write(`<p>La cantidad de producto ingresado es: ${producto.cantidad} </p>`);
-    document.write(`<p>El Precio C/Iva es: ${producto.precioIva()} </p>`);
-    document.write(`<p>El Precio de lista C/Iva es: ${producto.precioLista()} </p></div>`);
-    document.write("<br>");
-}
+function finCarga(){
+    let carga = document.querySelector(".btn_fin");
+    carga.addEventListener("click", fin);
+    function fin(){
+        let contenedorNuevo = document.createElement("div");
+        contenedorNuevo.setAttribute("class", "div_display justify-content-start");
+        let contenedorViejo = document.querySelector(".div_display");
+        let nodoPadre = contenedorViejo.parentNode;
+        nodoPadre.replaceChild(contenedorNuevo, contenedorViejo);
+        for (let producto of arrayArticulos){
+            contenedorNuevo.innerHTML = 
+                 `<p class="d-inline border-1"><strong>Tipo: </strong>${producto.articulo}</p>
+                  <p class="d-inline border-1"><strong>Marca: </strong>${producto.marca}</p>
+                  <p class="d-inline border-1"><strong>Precio: </strong>${producto.precio}</p>
+                  <p class="d-inline border-1 "><strong>Cantidad en stock: </strong>${producto.cantidad}</p>
+                  `;
+        }
 
-arrayArticulos.sort((a1, a2) => {
-    if (a1.articulo < a2.articulo){
-        return -1;
-    } else if(a1.articulo > a2.articulo){
-        return 1;
-    }else{
-        return 0;
     }
-})
+}
+finCarga();
 
-console.log(arrayArticulos);
+
+//
+//console.log(arrayArticulos);
 

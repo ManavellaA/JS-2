@@ -1,16 +1,17 @@
-h1 {
-  font-size: 8vh !important;
-  text-align: center;
-  color: #272727; }
+body{
+  background-color: aqua!important;
+  margin: 50px 40px 20px 20px!important;
+}
 
-h2 {
-  text-align: center;
-  color: #272727; }
+input {
+width: 20rem!important;
+margin-bottom: 50px!important;
+}
 
-h3 {
-  text-align: center;
-  color: #272727; }
+.btn-primary{
+margin-left: 30px!important;
+}
 
-div p {
-  font-size: 3vh;
-  color: #009708; }
+.btn-success{
+  margin-left: 10px!important;
+}
