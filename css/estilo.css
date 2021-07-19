@@ -1,32 +1,41 @@
 body{
-  background-color: aqua!important;
-  margin: 50px 40px 20px 20px!important;
+    margin: 20px!important;
+    background-color: rgb(255, 253, 225)!important;
 }
 
-h1{
-  font-size: 1.5rem!important;
+label{
+    margin: 10px!important;
 }
 
-h2{
-  font-size: 1rem!important;
-  margin-bottom: 40px!important;
+button{
+    margin-top: 30px!important;
+    width: 70px!important;
 }
 
-input {
-width: 20rem!important;
-margin-bottom: 20px!important;
+input{
+    height: auto;
+    width: 150px!important;
+    text-align: center;
+}
+.email{
+    width: 280px!important;
 }
 
-.btn-primary{
-  margin-top: 30px;
-margin-left: 30px!important;
+.div_animacion{
+    position: relative;
+    top: 200px;
 }
 
-.btn-success{
-  margin-top: 30px;
-  margin-left: 10px!important;
-}
+.bola{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(119, 33, 33);
+    border: red 3px solid;
+    border-radius : 10px;
+    position: relative;
+  }
 
-p{
-  margin-right: 20px;
+.cargando{
+    position:relative;
+    left: 25px;
 }

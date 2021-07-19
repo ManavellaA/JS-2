@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,41 +9,25 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="row justify-content-start align-content-between div_display">
-        <div>
-            <h1>Ingresa los articulos a cargar.</h1>
-            <h2>Al finalizar presiona "Fin Carga"</h2>
-        </div>
-        <div>
-        <label for="" class="text-center"><p>Articulo:</p></label>
-        <input type="text" class="articulo">
-        </div>
-        
-        <div>
-            <label for="" class="text-center"><p>Marca:</p></label>
-            <input type="text" class="marca">
-        </div>
-
-        <div>
-        <label for="" class="text-center"><p>Precio:</p></label>
-        <input type="number" class="precio">
-        </div>
-    
-
-        <div>
-        <label for="" class="text-center"><p>Cantidad:</p></label>
-        <input type="number" class="cantidad">
-        </div>
-
-        <div>
-            <div class="d-inline">
-                <button class="btn_carga btn-success">Seguir Cargando</button>
+    <div class="d-flex align-item-center justify-content-center">
+        <form class="form row align-item-center justify-content-center insert">
+            <label class="text-center">Nombre:</label><input type="text" class="nombre">
+            <label class="text-center">Apellido:</label><input type="text" class="apellido">
+            <label class="text-center">E-mail:</label><input type="email" class="email">
+            <div class="d-flex align-item-center justify-content-center">    
+                <label for="">Mensaje:</label>
             </div>
-            <div class="d-inline">
-                <button class="btn_fin btn-primary">Fin Carga</button>
+            <div class="d-flex align-item-center justify-content-center">
+                <textarea name="" class="mensaje" cols="50" rows="5"></textarea>
+            </div >
+            <div class="d-flex align-item-center justify-content-center">
+                <button id="btnEnviar" type="button">Enviar</button>
             </div>
+        </form>
+        <div class="div_animacion">
         </div>
     </div>
-    <script src="./js/script2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./js/home.js"></script>
 </body>
 </html>
