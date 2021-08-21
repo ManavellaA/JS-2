@@ -13,26 +13,30 @@
     <div class="d-flex row">
         <h1>Calculo de Diodos de Caida</h1>
         
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex row div__label justify-content-center align-items-center">
             <div class="d-flex row col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                <label class="div_data_items-labels">N° Elementos:</label>
-                <label class="div_data_items-labels">Capacidad Bateria (Ah):</label>
-                <label class="div_data_items-labels">V Fondo (V):</label>
-                <label class="div_data_items-labels">V de trabajo (V):</label>
-                <label class="div_data_items-labels">Rango de Cadena (%)</label>
+                <label class="div__label-items">N° Elementos:</label>
+                <label class="div__label-items">Capacidad Bateria (Ah):</label>
+                <label class="div__label-items">V Fondo (V):</label>
+                <label class="div__label-items">V de trabajo (V):</label>
+                <label class="div__label-items">Rango de Cadena (%)</label>
             </div>
             <div class="d-flex div_inputs row col-md-2 col-3">
-                <input type="number" class="div_data_items-inputs form-control">
-                <input type="number" class="div_data_items-inputs form-control">
-                <input type="number" class="div_data_items-inputs form-control">
-                <input type="number" class="div_data_items-inputs form-control">
-                <input type="number" class="div_data_items-inputs form-control">
+                <input type="number" class="div__inputs-items form-control input_elementos">
+                <input type="number" class="div__inputs-items form-control input_cap_bateria">
+                <input type="number" class="div__inputs-items form-control input_v_fondo">
+                <input type="number" class="div__inputs-items form-control input_v_trabajo">
+                <input type="number" class="div__inputs-items form-control input_rango_cadena">
+            </div>
+            <div class="btn">
+                <button class="btn__calc btn-secondary">Calcular</button>
             </div>
         </div>
 
     </div>
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="./js/raiz.js"></script>
 </body>
 </html>
