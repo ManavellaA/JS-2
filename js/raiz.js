@@ -5,53 +5,59 @@ $(document).ready(function () {
         e.preventDefault();
         if(validacion_datos() === true){
 
-            console.log("paso al validacion");
+            console.log("paso la validacion");
 
         }else{
-            console.log("NO paso al validacion");
+            console.log("NO paso al validacion - se setea el Array");
+            arrayTemp = []
         }     
 
 
     });
     
     function validacion_datos() {  
-        let nElementos = parseInt($(`.input_elementos`).val())
-        let capBateria = parseInt($(`.input_cap_bateria`).val())
-        let vFondo = parseFloat($(`.input_v_fondo`).val())
-        let vTrabajo = parseFloat($(`.input_v_trabajo`).val())
-        let rangoCadena = parseInt($(`.input_rango_cadena`).val())
+        arrayTemp = []
+        let nElementos = $(`.input_elementos`).val()
+        let capBateria = $(`.input_cap_bateria`).val()
+        let vFondo = $(`.input_v_fondo`).val()
+        let vTrabajo = $(`.input_v_trabajo`).val()
+        let rangoCadena = $(`.input_rango_cadena`).val()
 
-        if(!nElementos || nElementos !== " " || nElementos === isNaN || nElementos === undefined ){
-            arrayTemp.push(nElementos)
+        if(nElementos !== ""){
+            arrayTemp.push({nElementos: nElementos})
         }
         else{
-            alert("Te falta completar el N° de Elementos");
+            alert("Falta completar n° de Elementos");
+            
+        } 
+        if(capBateria !== ""){
+            arrayTemp.push({capBateria: capBateria})   
         }
-
-        if(!$(`.input_cap_bateria`).val() || $(`.input_cap_bateria`).val() !== " "){
-            arrayTemp.push(capBateria)
-        }else{
-            alert("Te falta completar la Capacidad de las Baterias");
+        else{
+            alert("Falta completar la Capacidad de las Baterias");
+            
         }
-
-        if(!$(`.input_v_fondo`).val() && $(`.input_v_fondo`).val() !== " "){
-            arrayTemp.push(vFondo)
-        }else{
-            alert("Te falta completar la V de Fondo")
+        if(vFondo !== ""){
+            arrayTemp.push({vFondo: vFondo})   
         }
-        
-        if(!$(`.input_v_trabajo`).val() && $(`.input_v_trabajo`).val() !== " "){
-            arrayTemp.push(vTrabajo)
-        }else{
-            alert("Te falta completar la V de Trabajo")
+        else{
+            alert("Falta completar la V de Fondo");
+            
         }
-
-        if(!$(`.input_rango_cadena`).val() && $(`.input_rango_cadena`).val() !== " "){
-            arrayTemp.push(rangoCadena)
-        }else{
-            alert("Te falta completar el % de Cadena")
+        if(vTrabajo !== ""){
+            arrayTemp.push({vTrabajo: vTrabajo})
         }
-
+        else{
+            alert("Falta completar la V de Trabajo");
+            
+        }
+        if(rangoCadena !== ""){
+            arrayTemp.push({rangoCadena: rangoCadena})
+        }
+        else{
+            alert("Falta completar el Rango de Cadena");
+            
+        }
         if(arrayTemp.length === 5){
             return true
         }
