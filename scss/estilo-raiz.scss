@@ -7,38 +7,33 @@ body{
         margin-top: 20px!important;
     }
 
-    .div__label{
-        
-        &-items{
-            justify-content: center;
-            align-items: baseline;
-            margin-top: 18px!important;   
+    .div__diodos{
+        &__label{
+            &--items{
+                justify-content: center;
+                align-items: baseline;
+                margin-top: 18px!important;   
+            }
+        }
+        &__inputs{
+            margin-top: 5px!important;
+            &--items{
+                justify-content: center;
+                align-items: baseline;
+                margin-top: 6px!important;
+                height: 18%;
+            }
+        }
+        &__btn{
+            margin-top: 20px;
         }
     }
-
-    .div__inputs{
-        margin-top: 5px!important;
-
-        &-items{
-            justify-content: center;
-            align-items: baseline;
-            margin-top: 6px!important;
-            height: 18%;
-        }
-    }
-
-    .btn{
-        margin-top: 20px;
-    }
-
-
-
-
-
-
-
 
     
+
+
+
+
 
 
 

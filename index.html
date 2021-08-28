@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,27 +10,55 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" integrity="sha256-tZS42DPuYTXIRzSSTJS9gwKPv8+pglbBfNtJUNvdyW4=" crossorigin="anonymous">
     <title>Raiz</title>
 </head>
-<body>
-    <div class="d-flex row">
-        <h1>Calculo de Diodos de Caida</h1>
-        
-        <div class="d-flex row div__label justify-content-center align-items-center">
-            <div class="d-flex row col-8 col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                <label class="div__label-items">N° Elementos:</label>
-                <label class="div__label-items">Capacidad Bateria (Ah):</label>
-                <label class="div__label-items">V Fondo (V):</label>
-                <label class="div__label-items">V de trabajo (V):</label>
-                <label class="div__label-items">Rango de Cadena (%)</label>
+<body class="d-flex">
+    <div class="d-flex row col-12 col-md-6">
+        <h1>
+            Datos RFT
+        </h1>
+        <div class="d-flex row div__diodos justify-content-center align-items-center">
+            <div class="d-flex row div__diodos__label col-8 col-sm-5 col-md-4 col-lg-3 col-xl-5">
+                <label class="div__diodos__label--items">Tipo:</label>
+                <label class="div__diodos__label--items">Capacidad Bateria (Ah):</label>
+                <label class="div__diodos__label--items">V Fondo (V):</label>
+                <label class="div__diodos__label--items">V de trabajo (V):</label>
+                <label class="div__diodos__label--items">Rango de Cadena (%)</label>
             </div>
-            <form class="d-flex div_inputs row col-md-2 col-4">
-                <input type="number" class="div__inputs-items form-control input_elementos">
-                <input type="number" class="div__inputs-items form-control input_cap_bateria">
-                <input type="number" class="div__inputs-items form-control input_v_fondo">
-                <input type="number" class="div__inputs-items form-control input_v_trabajo">
-                <input type="number" class="div__inputs-items form-control input_rango_cadena">
-            </form>
-            <div class="btn">
-                <button class="btn__calc btn-success">Calcular</button>
+            <div class="d-flex div__diodos__inputs row col-md-4 col-4">
+                <div class="flex-column">
+                    <input type="number" class="div__diodos__inputs--items form-control input_elementos">
+                    <input type="number" class="div__diodos__inputs--items form-control input_cap_bateria">
+                    <input type="number" class="div__diodos__inputs--items form-control input_v_fondo">
+                </div>
+                <input type="number" class="div__diodos__inputs--items form-control input_v_trabajo">
+                <input type="number" class="div__diodos__inputs--items form-control input_rango_cadena">
+            </div>
+            <div class="div__diodos__btn btn">
+                <button class="btn__calc btn btn-success">Calcular</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="d-flex row col-12 col-md-6">
+        <h1>
+            Calculo de Diodos de Caida
+        </h1>
+        <div class="d-flex row div__diodos justify-content-center align-items-center">
+            <div class="d-flex row div__diodos__label col-8 col-sm-5 col-md-4 col-lg-3 col-xl-6">
+                <label class="div__diodos__label--items">N° Elementos:</label>
+                <label class="div__diodos__label--items">Capacidad Bateria (Ah):</label>
+                <label class="div__diodos__label--items">V Fondo (V):</label>
+                <label class="div__diodos__label--items">V de trabajo (V):</label>
+                <label class="div__diodos__label--items">Rango de Cadena (%)</label>
+            </div>
+            <div class="d-flex div__diodos__inputs row col-md-4 col-4">
+                <input type="number" class="div__diodos__inputs--items form-control input_elementos">
+                <input type="number" class="div__diodos__inputs--items form-control input_cap_bateria">
+                <input type="number" class="div__diodos__inputs--items form-control input_v_fondo">
+                <input type="number" class="div__diodos__inputs--items form-control input_v_trabajo">
+                <input type="number" class="div__diodos__inputs--items form-control input_rango_cadena">
+            </div>
+            <div class="div__diodos__btn btn">
+                <button class="btn__calc btn btn-success">Calcular</button>
             </div>
         </div>
 
