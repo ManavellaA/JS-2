@@ -1,6 +1,7 @@
 body {
   background-color: #c3ffeb !important;
-  margin: 0; }
+  margin: 0;
+  margin: 10px 10px 10px 10px !important; }
   body h1 {
     text-align: center;
     margin-top: 20px !important; }
