@@ -5,16 +5,5 @@ body {
   body h1 {
     text-align: center;
     margin-top: 20px !important; }
-  body .div__diodos__label--items {
-    justify-content: center;
-    align-items: baseline;
-    margin-top: 18px !important; }
-  body .div__diodos__inputs {
+  body .div__sep {
     margin-top: 5px !important; }
-    body .div__diodos__inputs--items {
-      justify-content: center;
-      align-items: baseline;
-      margin-top: 6px !important;
-      height: 18%; }
-  body .div__diodos__btn {
-    margin-top: 20px; }
