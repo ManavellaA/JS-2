@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" integrity="sha256-tZS42DPuYTXIRzSSTJS9gwKPv8+pglbBfNtJUNvdyW4=" crossorigin="anonymous">
     <title>Raiz</title>
 </head>
-<body class="d-flex row">
+<body>
             
     <div class="row justify-content-center align-items-center">
         <h1>
@@ -21,7 +21,7 @@
                 <dt class="col-4 col-sm-4">Tipo de RFT</dt>
                 <dd class="col-sm-5">
                     <p class="text-center"> V Entrada<input type="number" class="form-control"></p>
-                    <p class="text-center"> V Nominal de Salida<input type="number" class="form-control"></p>
+                    <p class="text-center"> V Nominal de Salida<input type="number" class="form-control input_v_trabajo"></p>
                     <p class="text-center"> A de Salida<input type="number" class="form-control"></p>
                 </dd>
             </div>
@@ -29,30 +29,33 @@
             <div class="div__sep col-sm-8 d-flex justify-content-center align-items-center border border-2 border-dark">
                 <dt class="col-4 col-sm-4">Banco de Bateria</dt>
                 <dd class="col-sm-5">
-                    <div class="row">
+                    <div class="row align-items-center justify-content-center">
                         <label class="text-center">Tipo de Bateria</label>
-                        <select class="form-control">
-                            <option>PL</option>
-                            <option>PK</option>
-                            <option>NiCd</option>
+                        <select class="width-10em select input_v_fondo">
+                            <option>Sin Baterias</option>
+                            <option value="2,27">Plomo Gel (PL)</option>
+                            <option value="14,4">Monoblock (PK)</option>
+                            <option value="1,6">Alcalina (NiCd)</option>
                         </select>
                     </div>
-                    <p class="text-center">Capacidad Ah<input type="number" class="form-control"></p>
-                    <p class="text-center">Cantidad de Elementos<input type="number" class="form-control"></p>
+                    <p class="text-center">Capacidad Ah<input type="number" class="form-control input_cap_bateria"></p>
+                    <p class="text-center">Cantidad de Elementos<input type="number" class="form-control input_elemetos"></p>
                 </dd>
             </div>
+
             <div class="div__sep col-sm-8 d-flex justify-content-center align-items-center border border-2 border-dark">
                 <dt class="col-4 col-sm-4">Datos RFT</dt>
                 <dd class="col-sm-5">
                     <p class="text-center">A de Consumo<input type="number" class="form-control"></p>
                     <p class="text-center">A de Bateria<input type="number" class="form-control"></p>
-                    <p class="text-center">% de Cadena<input type="number" class="form-control"></p>
-                    <div class="row">
-                        <select>
-                            <option>Sin Diodo de Bloqueo</option>
-                            <option>Diodo de Bloqueo en Consumo</option>
-                            <option>Diodo de Bloqueo en Bateria</option>
-                            <option>Diodo de Bloqueo en Ambos</option>
+                    <p class="text-center">% de Cadena<input type="number" class="form-control input_rango_cadena"></p>
+                    <div class="row align-items-center justify-content-center">
+                        <label class="text-center">Diodo de Bloqueo</label>
+                        <select class="width-13em select">
+                            <option>Sin Bloqueo</option>
+                            <option value="consumo">Bloqueo en Consumo</option>
+                            <option value="bateria">Bloqueo en Bateria</option>
+                            <option value="ambos">Bloqueo en Ambos</option>
                         </select>
                     </div>
                 </dd>
@@ -60,9 +63,10 @@
 
 
 
-
-
-
+            <div class="btn">
+                <button class="btn__calc btn btn-success">Calcular Diodos</button>
+                <button class="btn__calc__completo btn btn-success">Calculo Completo</button>
+            </div>
         </dl> 
     </div>
 
@@ -77,8 +81,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js" integrity="sha256-dOvlmZEDY4iFbZBwD8WWLNMbYhevyx6lzTpfVdo0asA=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.1/dist/xlsx.min.js" integrity="sha256-gJTV8kOrgHQgHbXYrUP8OyF2GTqPHlByn+EbdBO1zOs=" crossorigin="anonymous"></script>
-<!-- <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){}; handleClientLoad()"onreadystatechange="if (this.readyState === 'complete') this.onload()"></script> -->
-<!-- <script src="./js/apiDrive.js"></script> -->
 <script src="./js/raiz.js"></script>
 </body>
 </html>

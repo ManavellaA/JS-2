@@ -11,29 +11,24 @@ body{
 
     .div__sep{
         margin-top: 5px!important;
+
+        .width-10em{
+            width: 10em;
+            margin-bottom: 10px;
+        }
+    
+        .width-13em{
+            width: 13em;
+        }
+    
+        .select{
+            text-align-last: center;
+            color: #000;
+            background-color:#ffffff;
+        }
     }
      
-    // .div__diodos{
-    //     &__label{
-    //         &--items{
-    //             justify-content: center;
-    //             align-items: baseline;
-    //             margin-top: 18px!important;   
-    //         }
-    //     }
-    //     &__inputs{
-    //         margin-top: 5px!important;
-    //         &--items{
-    //             justify-content: center;
-    //             align-items: baseline;
-    //             margin-top: 6px!important;
-    //             height: 18%;
-    //         }
-    //     }
-    //     &__btn{
-    //         margin-top: 20px;
-    //     }
-    // }
+    
 
     
 

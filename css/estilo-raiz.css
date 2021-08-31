@@ -7,3 +7,12 @@ body {
     margin-top: 20px !important; }
   body .div__sep {
     margin-top: 5px !important; }
+    body .div__sep .width-10em {
+      width: 10em;
+      margin-bottom: 10px; }
+    body .div__sep .width-13em {
+      width: 13em; }
+    body .div__sep .select {
+      text-align-last: center;
+      color: #000;
+      background-color: #ffffff; }
