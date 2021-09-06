@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/estilo-raiz.css">
     <!-- CSS Boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CSS Sweetalert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" integrity="sha256-tZS42DPuYTXIRzSSTJS9gwKPv8+pglbBfNtJUNvdyW4=" crossorigin="anonymous">
     <title>Raiz</title>
 </head>
@@ -20,9 +21,9 @@
             <div class="div__sep col-sm-8 d-flex justify-content-center align-items-center border border-2 border-dark">
                 <dt class="col-4 col-sm-4">Tipo de RFT</dt>
                 <dd class="col-sm-5">
-                    <p class="text-center"> V Entrada<input type="number" class="form-control"></p>
-                    <p class="text-center"> V Nominal de Salida<input type="number" class="form-control input_v_trabajo"></p>
-                    <p class="text-center"> A de Salida<input type="number" class="form-control"></p>
+                    <p class="text-center"> V Entrada<input type="number" class="form-control input_v_entrada"></p>
+                    <p class="text-center"> V Nominal de Salida<input type="number" class="form-control input_v_nominal"></p>
+                    <p class="text-center"> A de Salida<input type="number" class="form-control input_a_salida"></p>
                 </dd>
             </div>
             
@@ -33,25 +34,25 @@
                         <label class="text-center">Tipo de Bateria</label>
                         <select class="width-10em select input_v_fondo">
                             <option>Sin Baterias</option>
-                            <option value="2,27">Plomo Gel (PL)</option>
-                            <option value="14,4">Monoblock (PK)</option>
-                            <option value="1,6">Alcalina (NiCd)</option>
+                            <option value="2.27">Plomo Gel (PL)</option>
+                            <option value="14.4">Monoblock (PK)</option>
+                            <option value="1.6">Alcalina (NiCd)</option>
                         </select>
                     </div>
-                    <p class="text-center">Capacidad Ah<input type="number" class="form-control input_cap_bateria"></p>
-                    <p class="text-center">Cantidad de Elementos<input type="number" class="form-control input_elemetos"></p>
+                    <p class="text-center">Capacidad Ah<input type="number" class="form-control input_bateria"></p>
+                    <p class="text-center">Cantidad de Elementos<input type="number" class="form-control input_elementos"></p>
                 </dd>
             </div>
 
             <div class="div__sep col-sm-8 d-flex justify-content-center align-items-center border border-2 border-dark">
                 <dt class="col-4 col-sm-4">Datos RFT</dt>
                 <dd class="col-sm-5">
-                    <p class="text-center">A de Consumo<input type="number" class="form-control"></p>
-                    <p class="text-center">A de Bateria<input type="number" class="form-control"></p>
+                    <p class="text-center">A de Consumo<input type="number" class="form-control input_a_consumo"></p>
+                    <p class="text-center">A de Bateria<input type="number" class="form-control input_a_bateria"></p>
                     <p class="text-center">% de Cadena<input type="number" class="form-control input_rango_cadena"></p>
                     <div class="row align-items-center justify-content-center">
                         <label class="text-center">Diodo de Bloqueo</label>
-                        <select class="width-13em select">
+                        <select class="width-13em select input_bloqueo">
                             <option>Sin Bloqueo</option>
                             <option value="consumo">Bloqueo en Consumo</option>
                             <option value="bateria">Bloqueo en Bateria</option>
@@ -76,11 +77,11 @@
           &copy; Copyright <strong><span>Andrés Raúl Manavella</span></strong>. All Rights Reserved
         </p>
     </footer>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js" integrity="sha256-dOvlmZEDY4iFbZBwD8WWLNMbYhevyx6lzTpfVdo0asA=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.1/dist/xlsx.min.js" integrity="sha256-gJTV8kOrgHQgHbXYrUP8OyF2GTqPHlByn+EbdBO1zOs=" crossorigin="anonymous"></script>
-<script src="./js/raiz.js"></script>
+<script src="./js/calculador.js"></script>
 </body>
 </html>
