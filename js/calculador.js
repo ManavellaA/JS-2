@@ -1,10 +1,10 @@
 let arrayCargador = [];
 
-let arrayVnominal = [{220:220},{120:110},{48:48},{24:24}];
+let objVnominal = {v220:220, v120:110, v48:48, v24:24};
 
-let arrayDisipadores = [{ZD55:0.80}, {ZD18:0.85}, {ZD20:0.9}, {ZD23:0.65}];
+let objDisipadores = {ZD55:0.80, ZD18:0.85, ZD20:0.9, ZD23:0.65};
 
-let arrayCables =[{1:15},{1.5:18},{2.5:25},{4:32},{6:41},{10:56},{16:74},{25:95},{35:119},{50:144},{70:179},{95:220},{120:258}];
+let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c35:119, c50:144, c70:179, c95:220, c120:258};
 
 
 
@@ -50,7 +50,9 @@ function validacion_diodos_de_caida() {
                 fondo = parseFloat(fondo);
                 arrayCargador.push({fondo: fondo})   
                 if(vNominal !== ""){
-                    vNominal = parseInt(vNominal);
+                    vNominal = v + vNominal
+                    
+
                     arrayCargador.push({vNominal: vNominal})
                     if(rangoCadena !== ""){
                         rangoCadena = parseInt(rangoCadena);
@@ -71,7 +73,7 @@ function validacion_diodos_de_caida() {
     }else{
         Swal.fire(
             'Atención!',
-            `Falta completar un campo`,
+            `Faltan completar campos`,
             'warning'
         )
         arrayCargador = []
@@ -116,7 +118,7 @@ function calc_total() {
     }else{
         Swal.fire(
             'Atención!',
-            `Falta completar un campo`,
+            `Faltan completar campos`,
             'warning'
         )
         arrayCargador = []
