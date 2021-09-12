@@ -1,7 +1,5 @@
 let arrayCargador = [];
 
-let objVnominal = {v220:220, v120:110, v48:48, v24:24};
-
 let objDisipadores = {ZD55:0.80, ZD18:0.85, ZD20:0.9, ZD23:0.65};
 
 let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c35:119, c50:144, c70:179, c95:220, c120:258};
@@ -11,11 +9,10 @@ let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c
 $(`.btn__calc`).click(function (e) {
     e.preventDefault();
     if(validacion_diodos_de_caida() === true){
-
         console.log("validacion DIODOS correcta");
         calc_diodos_de_caida();
     }else{
-        console.log("NO paso al validacion - se setea el ArrayData");
+        console.log("NO paso la validacion de Diodos - se setea el ArrayCargador");
     }
 });
 
@@ -23,14 +20,13 @@ $(`.btn__calc__completo`).click(function (e) {
     e.preventDefault();
     if(validacion_diodos_de_caida() === true){
         console.log("validacion DIODOS correcta");
-        if(calc_total() === true){
+        if(validacion_total() === true){
             console.log("validacion TOTAL correcta");
+            calc_total();
         }
-
     }else{
-        console.log("NO paso al validacion - se setea el ArrayData");
+        console.log("NO paso la validacion Total- se setea el ArrayCargador");
     }
-    
 });
 
 function validacion_diodos_de_caida() {
@@ -50,22 +46,39 @@ function validacion_diodos_de_caida() {
                 fondo = parseFloat(fondo);
                 arrayCargador.push({fondo: fondo})   
                 if(vNominal !== ""){
-                    vNominal = v + vNominal
-                    
-
+                    vNominal = parseInt(vNominal);
+                    if(vNominal === 120){       
+                        vNominal = 110
+                    }
                     arrayCargador.push({vNominal: vNominal})
                     if(rangoCadena !== ""){
                         rangoCadena = parseInt(rangoCadena);
-                        arrayCargador.push({rangoCadena: rangoCadena})
+                        if(rangoCadena === 10){
+                            let cadenaAlta = vNominal * 1.1;
+                            let cadenaBaja = vNominal * 0.9;
+                            arrayCargador.push({cadenaAlta: cadenaAlta})
+                            arrayCargador.push({cadenaBaja: cadenaBaja})
+                        }else if(rangoCadena === 5){
+                            let cadenaAlta = vNominal * 1.05;
+                            let cadenaBaja = vNominal * 0.95;
+                            arrayCargador.push({cadenaAlta: cadenaAlta})
+                            arrayCargador.push({cadenaBaja: cadenaBaja})
+                        }else(
+                            Swal.fire(
+                                'Atención!',
+                                `Rango de cadena mal ingresado`,
+                                'warning'
+                            )
+                        )
                     }
                 }
             }
         }
     }
 
-    if(arrayCargador.length === 5){
+    if(arrayCargador.length === 6){
         $(`.input_elementos`).val("")
-        $(`.input_bateria`).val("Sin Baterias")
+        $(`.input_bateria`).val("Sin Bateria")
         $(`.input_v_fondo`).val("")
         $(`.input_v_nominal`).val("")
         $(`.input_rango_cadena`).val("")
@@ -80,7 +93,7 @@ function validacion_diodos_de_caida() {
     }
 }
 
-function calc_total() { 
+function validacion_total() { 
 
     let vEntrada = $(`.input_v_entrada`).val()
     let aSalida = $(`.input_a_salida`).val()
@@ -108,7 +121,7 @@ function calc_total() {
         }
     }
 
-    if(arrayCargador.length === 10){
+    if(arrayCargador.length === 11){
         $(`.input_v_entrada`).val("")
         $(`.input_a_salida`).val("")
         $(`.input_a_consumo`).val("")
@@ -125,8 +138,10 @@ function calc_total() {
     }
 }
 
-
 function calc_diodos_de_caida(){
-    
+
 }
 
+function calc_total() { 
+    
+ }
