@@ -20,6 +20,7 @@ $(`.btn__calc__completo`).click(function (e) {
     e.preventDefault();
     if(validacion_diodos_de_caida() === true){
         console.log("validacion DIODOS correcta");
+        calc_diodos_de_caida();
         if(validacion_total() === true){
             console.log("validacion TOTAL correcta");
             calc_total();
