@@ -1,9 +1,11 @@
-$(`.equipo`).click(function(e){
+function equipo_call() {  
+$(`.equipo`).click(function(){
     equipo()
 });
+}
+equipo_call()
 
 function equipo() { 
-    $(`.div_body`).attr(`class`, `row justify-content-center align-items-center div_body`);
     $(`.div_body`).html(`
     <h1>
         Cargadores RFT
@@ -54,29 +56,28 @@ function equipo() {
         </dd>
     </div>
     
-    
-    
     <div class="btn">
         <button class="volver btn btn-success p-2 m-3">Volver</button>
         <button class="btn__calc__completo btn btn-success p-2 m-3">Calcular</button>
     </div>
     </dl> 
     `);
+    volver();
 }
 
-$(`.volver`).click(function () {
-    volver();
-}); 
+
 
 function volver() {  
-
-    $(`.div_body`).html(`
-    <h1>
-        Calculos
-    </h1>
-    <div class="d-flex align-items-center justify-content-center m-5">
-        <button class="btn btn-success diodos p-3 m-3">Calculo de Diodos</button>
-        <button class="btn btn-success equipo p-3 m-3">Calculo de Equipo</button>
-    </div>
-    `);
+    $(`.volver`).click(function (e) {
+        $(`.div_body`).html(`
+        <h1>
+            Calculos
+        </h1>
+        <div class="d-flex align-items-center justify-content-center m-5">
+            <button class="btn btn-success diodos p-3 m-3">Calculo de Diodos</button>
+            <button class="btn btn-success equipo p-3 m-3">Calculo de Equipo</button>
+        </div>
+        `);
+        equipo_call();
+    });
 }
