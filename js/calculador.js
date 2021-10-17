@@ -27,21 +27,14 @@ function validacion_diodos_de_caida() {
     let vNominal = $(`.input_v_nominal`).val()
     let rangoCadena = $(`.input_rango_cadena`).val()
 
-    if(elementos !== ""){
-        elementos = parseInt(elementos);
-        arrayCargador.push({elementos})
-        if(bateria !== ""){
-            bateria = parseInt(bateria);
-            arrayCargador.push({bateria: bateria})   
-            if(fondo !== ""){
-                fondo = parseFloat(fondo);
-                arrayCargador.push({fondo: fondo})   
-                if(vNominal !== ""){
-                    vNominal = parseInt(vNominal);
-                    if(vNominal === 120){       
-                        vNominal = 110
-                    }
-                    arrayCargador.push({vNominal: vNominal})
+    elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
+        
+    bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
+    
+    fondo !== "" ? arrayCargador.push({vFondo: parseFloat(fondo)}) : error("") ;
+    
+    vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("") ; 
+
                     if(rangoCadena !== ""){
                         rangoCadena = parseInt(rangoCadena);
                         if(rangoCadena === 10){
@@ -62,10 +55,8 @@ function validacion_diodos_de_caida() {
                             )
                         )
                     }
-                }
-            }
-        }
-    }
+                
+    
 
     if(arrayCargador.length === 6){
         $(`.input_elementos`).val("")
@@ -83,6 +74,14 @@ function validacion_diodos_de_caida() {
         arrayCargador = []
     }
 }
+
+function error(elemento) { 
+    Swal.fire(
+        'Atención!',
+        `Falta completar ${elemento}`,
+        'warning'
+    )
+ }
 
 function validacion_total() { 
 
@@ -131,8 +130,13 @@ function validacion_total() {
 
 function calc_diodos_de_caida(){
 
+    const [elementos,bateria,vFondo,vNominal,cadenaAlta,cadenaBaja] = arrayCargador
+
+
 }
 
 function calc_total() { 
-    
+  
+    const [elementos,bateria,fondo,vNominal,cadenaAlta,cadenaBaja,vEntrada,aSalida,aConsumo,aBateria,bloqueo] = arrayCargador
+
  }
