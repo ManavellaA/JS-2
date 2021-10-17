@@ -63,6 +63,7 @@ function equipo() {
     </dl> 
     `);
     volver();
+    calc_completo();
 }
 
 

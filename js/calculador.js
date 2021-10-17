@@ -4,28 +4,7 @@ let objDisipadores = {ZD55:0.80, ZD18:0.85, ZD20:0.9, ZD23:0.65};
 
 let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c35:119, c50:144, c70:179, c95:220, c120:258};
 
-// class Diodos_de_Caida {
-//     constructor(){
-//          this.elementos
-//          this.bateria
-//          this.vFondo
-//          this.vNominal
-//          this.
-//          this.
-//          this.
-//          this.
-//     }
-// }
-
-$(`.btn__calc`).click(function () {
-    if(validacion_diodos_de_caida() === true){
-        console.log("validacion DIODOS correcta");
-        calc_diodos_de_caida();
-    }else{
-        console.log("NO paso la validacion de Diodos - se setea el ArrayCargador");
-    }
-});
-
+function calc_completo() {  
 $(`.btn__calc__completo`).click(function () { 
     if(validacion_diodos_de_caida() === true){
         console.log("validacion DIODOS correcta");
@@ -38,6 +17,8 @@ $(`.btn__calc__completo`).click(function () {
         console.log("NO paso la validacion Total- se setea el ArrayCargador");
     }
 });
+}
+calc_completo();
 
 function validacion_diodos_de_caida() {
     let elementos = $(`.input_elementos`).val()
