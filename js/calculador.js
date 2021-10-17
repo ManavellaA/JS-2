@@ -31,48 +31,47 @@ function validacion_diodos_de_caida() {
         
     bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
     
-    fondo !== "" ? arrayCargador.push({vFondo: parseFloat(fondo)}) : error("") ;
+    fondo !== "" ? arrayCargador.push({vFondo: parseFloat(fondo)}) : error("Tension de Fondo") ;
     
-    vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("") ; 
+    vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
 
-                    if(rangoCadena !== ""){
-                        rangoCadena = parseInt(rangoCadena);
-                        if(rangoCadena === 10){
-                            let cadenaAlta = vNominal * 1.1;
-                            let cadenaBaja = vNominal * 0.9;
-                            arrayCargador.push({cadenaAlta: cadenaAlta})
-                            arrayCargador.push({cadenaBaja: cadenaBaja})
-                        }else if(rangoCadena === 5){
-                            let cadenaAlta = vNominal * 1.05;
-                            let cadenaBaja = vNominal * 0.95;
-                            arrayCargador.push({cadenaAlta: cadenaAlta})
-                            arrayCargador.push({cadenaBaja: cadenaBaja})
-                        }else(
-                            Swal.fire(
-                                'Atención!',
-                                `Rango de cadena mal ingresado`,
-                                'warning'
-                            )
-                        )
-                    }
+    rangoCadena !== "" ? rangoCadena = parseInt(rangoCadena) : error("% de cadena");
+                        // if(rangoCadena === 10){
+                        //     let cadenaAlta = vNominal * 1.1;
+                        //     let cadenaBaja = vNominal * 0.9;
+                        //     arrayCargador.push({cadenaAlta: cadenaAlta})
+                        //     arrayCargador.push({cadenaBaja: cadenaBaja})
+                        // }else if(rangoCadena === 5){
+                        //     let cadenaAlta = vNominal * 1.05;
+                        //     let cadenaBaja = vNominal * 0.95;
+                        //     arrayCargador.push({cadenaAlta: cadenaAlta})
+                        //     arrayCargador.push({cadenaBaja: cadenaBaja})
+                        // }else(
+                        //     Swal.fire(
+                        //         'Atención!',
+                        //         `Rango de cadena mal ingresado`,
+                        //         'warning'
+                        //     )
+                        // )
+                    
                 
     
 
-    if(arrayCargador.length === 6){
-        $(`.input_elementos`).val("")
-        $(`.input_bateria`).val("Sin Bateria")
-        $(`.input_v_fondo`).val("")
-        $(`.input_v_nominal`).val("")
-        $(`.input_rango_cadena`).val("")
-        return true
-    }else{
-        Swal.fire(
-            'Atención!',
-            `Faltan completar campos`,
-            'warning'
-        )
-        arrayCargador = []
-    }
+    // if(arrayCargador.length === 6){
+    //     $(`.input_elementos`).val("")
+    //     $(`.input_bateria`).val("Sin Bateria")
+    //     $(`.input_v_fondo`).val("")
+    //     $(`.input_v_nominal`).val("")
+    //     $(`.input_rango_cadena`).val("")
+    //     return true
+    // }else{
+    //     Swal.fire(
+    //         'Atención!',
+    //         `Faltan completar campos`,
+    //         'warning'
+    //     )
+    //     arrayCargador = []
+    // }
 }
 
 function error(elemento) { 
