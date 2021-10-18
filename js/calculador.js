@@ -26,6 +26,9 @@ function validacion_diodos_de_caida() {
     let fondo = $(`.input_v_fondo`).val()
     let vNominal = $(`.input_v_nominal`).val()
     let rangoCadena = $(`.input_rango_cadena`).val()
+    let cadenaAlta
+    let cadenaBaja
+
 
     elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
         
@@ -35,43 +38,9 @@ function validacion_diodos_de_caida() {
     
     vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
 
-    rangoCadena !== "" ? rangoCadena = parseInt(rangoCadena) : error("% de cadena");
-                        // if(rangoCadena === 10){
-                        //     let cadenaAlta = vNominal * 1.1;
-                        //     let cadenaBaja = vNominal * 0.9;
-                        //     arrayCargador.push({cadenaAlta: cadenaAlta})
-                        //     arrayCargador.push({cadenaBaja: cadenaBaja})
-                        // }else if(rangoCadena === 5){
-                        //     let cadenaAlta = vNominal * 1.05;
-                        //     let cadenaBaja = vNominal * 0.95;
-                        //     arrayCargador.push({cadenaAlta: cadenaAlta})
-                        //     arrayCargador.push({cadenaBaja: cadenaBaja})
-                        // }else(
-                        //     Swal.fire(
-                        //         'Atención!',
-                        //         `Rango de cadena mal ingresado`,
-                        //         'warning'
-                        //     )
-                        // )
-                    
-                
-    
+    rangoCadena !== "" ? cadenaAlta*(rangoCadena/100) : error("% de cadena");
 
-    // if(arrayCargador.length === 6){
-    //     $(`.input_elementos`).val("")
-    //     $(`.input_bateria`).val("Sin Bateria")
-    //     $(`.input_v_fondo`).val("")
-    //     $(`.input_v_nominal`).val("")
-    //     $(`.input_rango_cadena`).val("")
-    //     return true
-    // }else{
-    //     Swal.fire(
-    //         'Atención!',
-    //         `Faltan completar campos`,
-    //         'warning'
-    //     )
-    //     arrayCargador = []
-    // }
+    rangoCadena !== "" ? cadenaBaja : error("% de cadena");
 }
 
 function error(elemento) { 
