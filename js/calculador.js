@@ -1,9 +1,5 @@
 let arrayCargador = [];
 
-let objDisipadores = {ZD55:0.80, ZD18:0.85, ZD20:0.9, ZD23:0.65};
-
-let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c35:119, c50:144, c70:179, c95:220, c120:258};
-
 function calc_completo() {  
 $(`.btn__calc__completo`).click(function () { 
     validacion_diodos_de_caida() === true ? calc_diodos_de_caida(): console.log("No paso validacion de Diodos") ;
@@ -18,6 +14,8 @@ function validacion_diodos_de_caida() {
     let fondo = $(`.input_v_fondo`).val()
     let vNominal = $(`.input_v_nominal`).val()
     let rangoCadena = $(`.input_rango_cadena`).val()
+    let cadenaAlta
+    let cadenaBaja
 
     elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
         
@@ -27,9 +25,7 @@ function validacion_diodos_de_caida() {
     
     vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
 
-    rangoCadena !== "" ? cadenaAlta*(rangoCadena/100) : error("% de cadena");
-
-    rangoCadena !== "" ? cadenaBaja : error("% de cadena");
+    rangoCadena !== "" ? () => {cadenaAlta = 1+(rangoCadena/100); cadenaBaja = 1-(rangoCadena/100); arrayCargador.push({cadenaAlta: parseFloat(cadenaAlta)}); arrayCargador.push({cadenaBaja: parseFloat(cadenaBaja)}) } : error("% de cadena");
 }
 
 function error(element) { 
