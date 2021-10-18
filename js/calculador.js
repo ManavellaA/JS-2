@@ -6,16 +6,8 @@ let objCables ={c1:15, c1c5:18, c2c5:25, c4:32, c6:41, c10:56, c16:74, c25:95, c
 
 function calc_completo() {  
 $(`.btn__calc__completo`).click(function () { 
-    if(validacion_diodos_de_caida() === true){
-        console.log("validacion DIODOS correcta");
-        calc_diodos_de_caida();
-        if(validacion_total() === true){
-            console.log("validacion TOTAL correcta");
-            calc_total();
-        }
-    }else{
-        console.log("NO paso la validacion Total- se setea el ArrayCargador");
-    }
+    validacion_diodos_de_caida() === true ? calc_diodos_de_caida(): console.log("No paso validacion de Diodos") ;
+    validacion_total() === true ? calc_total() : console.log("No paso validacion de Total") ;
 });
 }
 calc_completo();
@@ -26,9 +18,6 @@ function validacion_diodos_de_caida() {
     let fondo = $(`.input_v_fondo`).val()
     let vNominal = $(`.input_v_nominal`).val()
     let rangoCadena = $(`.input_rango_cadena`).val()
-    let cadenaAlta
-    let cadenaBaja
-
 
     elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
         
@@ -43,10 +32,10 @@ function validacion_diodos_de_caida() {
     rangoCadena !== "" ? cadenaBaja : error("% de cadena");
 }
 
-function error(elemento) { 
+function error(element) { 
     Swal.fire(
         'Atención!',
-        `Falta completar ${elemento}`,
+        `Falta completar ${element}`,
         'warning'
     )
  }
@@ -59,41 +48,15 @@ function validacion_total() {
     let bateria = $(`.input_a_bateria`).val()
     let bloqueo = $(`.input_bloqueo`).val()
 
-    if(vEntrada !== ""){
-        vEntrada = parseInt(vEntrada);
-        arrayCargador.push({vEntrada: vEntrada})
-        if(aSalida !== ""){
-            aSalida = parseInt(aSalida);
-            arrayCargador.push({aSalida: aSalida})   
-            if(consumo !== ""){
-                consumo = parseInt(consumo);
-                arrayCargador.push({aconsumo: consumo})   
-                if(bateria !== ""){
-                    bateria = parseInt(bateria);
-                    arrayCargador.push({abateria: bateria})
-                    if(bloqueo !== ""){
-                        arrayCargador.push({bloqueo: bloqueo})
-                    }
-                }
-            }
-        }
-    }
+vEntrada !== "" ? arrayCargador.push({vEntrada: parseInt(vEntrada)}) : error(" Tension de Entrada") ;
 
-    if(arrayCargador.length === 11){
-        $(`.input_v_entrada`).val("")
-        $(`.input_a_salida`).val("")
-        $(`.input_a_consumo`).val("")
-        $(`.input_a_bateria`).val("")
-        $(`.input_bloqueo`).val("Sin Bloqueo")
-        return true
-    }else{
-        Swal.fire(
-            'Atención!',
-            `Faltan completar campos`,
-            'warning'
-        )
-        arrayCargador = []
-    }
+aSalida !== "" ? arrayCargador.push({aSalida: parseInt(aSalida)}) : error("Corriente de Salida") ;
+               
+consumo !== "" ? arrayCargador.push({aconsumo: parseInt(consumo)}) : error("Corriente de Consumo") ;
+   
+bateria !== "" ? arrayCargador.push({abateria: parseInt(bateria)}) : error("Corriente de Bateria") ;
+                    
+bloqueo !== "" ? arrayCargador.push({bloqueo: bloqueo}): error("Pocision del Diodo de Bloqueo") ;
 }
 
 function calc_diodos_de_caida(){
