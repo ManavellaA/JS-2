@@ -8,7 +8,6 @@ $(`.btn__calc__completo`).click(function () {
 }
 calc_completo();
 
-
 function error(element) { 
     Swal.fire(
         'Atención!',
@@ -33,7 +32,7 @@ function validacion_diodos_de_caida() {
     }
     elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
     bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
-    vFondo !== "" ? arrayCargador.push({vFondo: parseFloat(vFondo)}) : error("Tension de Fondo") ;
+    vFondo !== "" ? arrayCargador.push({vFondo: parseFloat(vFondo)}) : error("Tension de Fondo");
     vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
     rangoCadena !== "" ? cadena() : error("% de cadena");
     if(arrayCargador.length === 6){
