@@ -24,11 +24,11 @@ function validacion_diodos_de_caida() {
     let rangoCadena = $(`.input_rango_cadena`).val()
     let cadenaAlta
     let cadenaBaja
-    function cadena() {
+    const cadena = () => {
         cadenaAlta = 1+(rangoCadena/100); 
         cadenaBaja = 1-(rangoCadena/100); 
-        arrayCargador.push({cadenaAlta: parseFloat(cadenaAlta)}); 
-        arrayCargador.push({cadenaBaja: parseFloat(cadenaBaja)})
+        arrayCargador.push({cadenaAlta: parseFloat(cadenaAlta).toFixed(2)}); 
+        arrayCargador.push({cadenaBaja: parseFloat(cadenaBaja).toFixed(2)}) 
     }
     elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
     bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
