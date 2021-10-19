@@ -8,6 +8,15 @@ $(`.btn__calc__completo`).click(function () {
 }
 calc_completo();
 
+
+function error(element) { 
+    Swal.fire(
+        'Atención!',
+        `Falta completar ${element}`,
+        'warning'
+    )
+ }
+
 function validacion_diodos_de_caida() {
     let elementos = $(`.input_elementos`).val()
     let bateria = $(`.input_bateria`).val()
@@ -16,17 +25,17 @@ function validacion_diodos_de_caida() {
     let rangoCadena = $(`.input_rango_cadena`).val()
     let cadenaAlta
     let cadenaBaja
-    elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
-    bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
-    vFondo !== "" ? arrayCargador.push({vFondo: parseFloat(vFondo)}) : error("Tension de Fondo") ;
-    vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
-    const cadena = () => {
+    function cadena() {
         cadenaAlta = 1+(rangoCadena/100); 
         cadenaBaja = 1-(rangoCadena/100); 
         arrayCargador.push({cadenaAlta: parseFloat(cadenaAlta)}); 
         arrayCargador.push({cadenaBaja: parseFloat(cadenaBaja)})
     }
-    rangoCadena !== "" ? cadena : error("% de cadena");
+    elementos !== "" ? arrayCargador.push({elementos: parseInt(elementos)}) : error("Cantidad de elementos");
+    bateria !== "" ? arrayCargador.push({bateria: parseInt(bateria)}) : error("");   
+    vFondo !== "" ? arrayCargador.push({vFondo: parseFloat(vFondo)}) : error("Tension de Fondo") ;
+    vNominal !== "" ? vNominal == 120 ? arrayCargador.push({vNominal: 110}) : arrayCargador.push({vNominal: parseInt(vNominal)}) : error("Tension nominal de salida") ; 
+    rangoCadena !== "" ? cadena() : error("% de cadena");
     if(arrayCargador.length === 6){
         $(`.input_elementos`).val("")
         $(`.input_bateria`).val("Sin Baterias")
@@ -39,24 +48,15 @@ function validacion_diodos_de_caida() {
     }
 }
 
-
-function error(element) { 
-    Swal.fire(
-        'Atención!',
-        `Falta completar ${element}`,
-        'warning'
-    )
- }
-
 function validacion_total() { 
     let vEntrada = $(`.input_v_entrada`).val()
     let aSalida = $(`.input_a_salida`).val()
-    let consumo = $(`.input_a_consumo`).val()
+    let aConsumo = $(`.input_a_consumo`).val()
     let aBateria = $(`.input_a_bateria`).val()
     let bloqueo = $(`.input_bloqueo`).val()
     vEntrada !== "" ? arrayCargador.push({vEntrada: parseInt(vEntrada)}) : error(" Tension de Entrada") ;
     aSalida !== "" ? arrayCargador.push({aSalida: parseInt(aSalida)}) : error("Corriente de Salida") ;
-    consumo !== "" ? arrayCargador.push({aconsumo: parseInt(consumo)}) : error("Corriente de Consumo") ;
+    aConsumo !== "" ? arrayCargador.push({aConsumo: parseInt(aConsumo)}) : error("Corriente de Consumo") ;
     aBateria !== "" ? arrayCargador.push({aBateria: parseInt(aBateria)}) : error("Corriente de Bateria") ;
     bloqueo !== "" ? arrayCargador.push({bloqueo: bloqueo}): error("Pocision del Diodo de Bloqueo") ;
     if(arrayCargador.length === 11){
@@ -70,16 +70,3 @@ function validacion_total() {
         arrayCargador = []
     }
 }
-
-function calc_diodos_de_caida(){
-
-    const [elementos,bateria,vFondo,vNominal,cadenaAlta,cadenaBaja] = arrayCargador
-
-
-}
-
-function calc_total() { 
-  
-    const [elementos,bateria,vFondo,vNominal,cadenaAlta,cadenaBaja,vEntrada,aSalida,aConsumo,aBateria,bloqueo] = arrayCargador
-
- }
