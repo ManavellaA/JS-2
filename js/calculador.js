@@ -17,17 +17,17 @@ function error(element) {
  }
 
 function validacion_diodos_de_caida() {
-    $(`.input_elementos`).val(55)
-    $(`.input_bateria`).val(100)
-    $(`.input_v_fondo`).val(2.27)
-    $(`.input_v_nominal`).val(120)
-    $(`.input_rango_cadena`).val(5)
+    let elementos = 55;
+    let bateria =  100;
+    let vFondo = 2.27;
+    let vNominal = 120;
+    let rangoCadena = 5;
 
-    let elementos = $(`.input_elementos`).val()
-    let bateria = $(`.input_bateria`).val()
-    let vFondo = $(`.input_v_fondo`).val()
-    let vNominal = $(`.input_v_nominal`).val()
-    let rangoCadena = $(`.input_rango_cadena`).val()
+    // let elementos = $(`.input_elementos`).val()
+    // let bateria = $(`.input_bateria`).val()
+    // let vFondo = $(`.input_v_fondo`).val()
+    // let vNominal = $(`.input_v_nominal`).val()
+    // let rangoCadena = $(`.input_rango_cadena`).val()
     let cadenaAlta
     let cadenaBaja
     const cadena = () => {
@@ -53,18 +53,20 @@ function validacion_diodos_de_caida() {
     }
 }
 
-function validacion_total() { 
-    $(`.input_v_entrada`).val(380)
-    $(`.input_a_salida`).val(30)
-    $(`.input_a_consumo`).val(20)
-    $(`.input_a_bateria`).val(10)
-    $(`.input_bloqueo`).val("consumo")
+validacion_diodos_de_caida()
 
-    let vEntrada = $(`.input_v_entrada`).val()
-    let aSalida = $(`.input_a_salida`).val()
-    let aConsumo = $(`.input_a_consumo`).val()
-    let aBateria = $(`.input_a_bateria`).val()
-    let bloqueo = $(`.input_bloqueo`).val()
+function validacion_total() { 
+    let vEntrada = 380;
+    let aSalida = 30;
+    let aConsumo = 20;
+    let aBateria = 10;
+    let bloqueo = "consumo";
+
+    // let vEntrada = $(`.input_v_entrada`).val()
+    // let aSalida = $(`.input_a_salida`).val()
+    // let aConsumo = $(`.input_a_consumo`).val()
+    // let aBateria = $(`.input_a_bateria`).val()
+    // let bloqueo = $(`.input_bloqueo`).val()
     vEntrada !== "" ? arrayCargador.push({vEntrada: parseInt(vEntrada)}) : error(" Tension de Entrada") ;
     aSalida !== "" ? arrayCargador.push({aSalida: parseInt(aSalida)}) : error("Corriente de Salida") ;
     aConsumo !== "" ? arrayCargador.push({aConsumo: parseInt(aConsumo)}) : error("Corriente de Consumo") ;
@@ -81,3 +83,4 @@ function validacion_total() {
         arrayCargador = []
     }
 }
+validacion_total()
