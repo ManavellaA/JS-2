@@ -17,6 +17,12 @@ function error(element) {
  }
 
 function validacion_diodos_de_caida() {
+    $(`.input_elementos`).val(55)
+    $(`.input_bateria`).val(100)
+    $(`.input_v_fondo`).val(2.27)
+    $(`.input_v_nominal`).val(120)
+    $(`.input_rango_cadena`).val(5)
+
     let elementos = $(`.input_elementos`).val()
     let bateria = $(`.input_bateria`).val()
     let vFondo = $(`.input_v_fondo`).val()
@@ -48,6 +54,12 @@ function validacion_diodos_de_caida() {
 }
 
 function validacion_total() { 
+    $(`.input_v_entrada`).val(380)
+    $(`.input_a_salida`).val(30)
+    $(`.input_a_consumo`).val(20)
+    $(`.input_a_bateria`).val(10)
+    $(`.input_bloqueo`).val("consumo")
+
     let vEntrada = $(`.input_v_entrada`).val()
     let aSalida = $(`.input_a_salida`).val()
     let aConsumo = $(`.input_a_consumo`).val()
