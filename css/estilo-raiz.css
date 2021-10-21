@@ -4,11 +4,11 @@ body {
   margin: 10px 10px 10px 10px !important; }
   body h1 {
     text-align: center;
-    margin-top: 20px !important; }
-    body input {
-      text-align: center;}
-    body .div__sep {
+    margin-top: 50px !important; }
+  body .div__sep {
     margin-top: 5px !important; }
+    body .div__sep input {
+      text-align: center; }
     body .div__sep .width-10em {
       width: 10em;
       margin-bottom: 10px; }
