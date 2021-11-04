@@ -16,6 +16,7 @@ function error(element) {
     )
  }
 
+
 function validacion_diodos_de_caida() {
     let elementos = $(`.input_elementos`).val()
     let bateria = $(`.input_bateria`).val()

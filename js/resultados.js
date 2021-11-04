@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 function calc_diodos_de_caida(){
 
 
