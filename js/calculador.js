@@ -6,8 +6,6 @@ $(`.btn__calc__completo`).click(function () {
     validacion_total() === true ? calc_total() : console.log("No paso validacion Total");
 });
 }
-
-
 function error(element) { 
     Swal.fire(
         'Atención!',
@@ -15,8 +13,6 @@ function error(element) {
         'warning'
     )
  }
-
-
 function validacion_diodos_de_caida() {
     // let elementos = 55;
     // let bateria = 100;
