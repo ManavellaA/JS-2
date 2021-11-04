@@ -18,6 +18,12 @@ function error(element) {
 
 
 function validacion_diodos_de_caida() {
+    // let elementos = 55;
+    // let bateria = 100;
+    // let vFondo = 2.27;
+    // let vNominal = 120;
+    // let rangoCadena = 5;
+
     let elementos = $(`.input_elementos`).val()
     let bateria = $(`.input_bateria`).val()
     let vFondo = $(`.input_v_fondo`).val()
